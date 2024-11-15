@@ -1,4 +1,4 @@
-# Electricity-Demand-and-Price-Forecasting
+# Electricity-Demand-and-Price-Forecasting__Infosys_internship_Oct_2024
 This project, "Electricity Demand and Price Forecasting," aims to leverage advanced machine learning techniques to predict electricity demand and pricing in real-time. With the growing reliance on data-driven insights for efficient energy management.this project addresses the crucial need for accurate forecasting to support smart grid operations and empower stakeholders in the energy market.
 
 Accurate demand and price forecasts can play a pivotal role in optimizing resource allocation, preventing grid overloads, and enhancing energy market decision-making. By integrating historical demand data, weather variables, and other economic and environmental factors, this project seeks to build predictive models capable of handling the complexity and volatility inherent in electricity markets. This, in turn, facilitates more sustainable and cost-effective energy management practices.
