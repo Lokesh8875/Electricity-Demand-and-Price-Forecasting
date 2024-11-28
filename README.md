@@ -1,27 +1,59 @@
-# Electricity-Demand-and-Price-Forecasting__Infosys_internship_Oct_2024
-This project, "Electricity Demand and Price Forecasting," aims to leverage advanced machine learning techniques to predict electricity demand and pricing in real-time. With the growing reliance on data-driven insights for efficient energy management.this project addresses the crucial need for accurate forecasting to support smart grid operations and empower stakeholders in the energy market.
+# Electricity_Demand_and_Price_forecasting
 
-Accurate demand and price forecasts can play a pivotal role in optimizing resource allocation, preventing grid overloads, and enhancing energy market decision-making. By integrating historical demand data, weather variables, and other economic and environmental factors, this project seeks to build predictive models capable of handling the complexity and volatility inherent in electricity markets. This, in turn, facilitates more sustainable and cost-effective energy management practices.
+## About the Dataset:
 
-# The project encompasses the following key goals:
+The energy consumption and weather data from various cities in Spain are combined to create a multivariate time series forecasting problem. The energy dataset contains features related to the generation of energy from different sources like fossil fuels, wind, and coal. On the other hand, the weather dataset contains features related to various weather metrics such as temperature, humidity, pressure, wind speed, etc.
 
-Enhanced Demand Prediction: Predicting demand with high accuracy to assist grid operators in planning and distribution, ultimately reducing the risk of power shortages and outages.
-Price Forecasting: Anticipating price changes to help consumers, producers, and other market participants make informed purchasing and selling decisions.
-Comprehensive Data Analysis: Analyzing correlations between demand, price, and external factors (such as weather and economic indicators) to uncover insights that support strategic energy planning.
+The dataset includes a four-year record of weather data <a href="https://openweathermap.org/api">https://openweathermap.org/api</a> 
+electrical consumption, pricing, and generation data for Spain <a href="https://transparency.entsoe.eu/dashboard/show">ENTOSE website</a> . The public ENTSOE portal was used to retrieve the consumption and generation data, while 
+the Spanish TSO Red Electric España was used to obtain the settlement prices <a href="https://www.esios.ree.es/en/market-and-prices?date=27-03-2023#">TSO website</a>. 
 
-# Key Outcomes:
-Improved Demand Forecasting: Accurate forecasting of electricity demand supports grid operators in allocating resources efficiently.
-Enhanced Price Prediction: Predicting price fluctuations empowers stakeholders in the energy market to make informed financial and operational decisions.
-Data-Driven Insights: This project reveals relationships between energy demand, price, and various external influences, aiding long-term planning and policy-making for sustainable energy use.
+# Method 
+The code consists of 4 main parts:
 
-# Technical Scope:
-The project includes modules for data collection, preprocessing, exploratory data analysis (EDA), time series modeling, multivariate dynamic regression, and model evaluation and selection. These steps culminate in generating reliable forecasts for both demand and price, providing actionable insights for real-time decision-making and strategic energy management.
+- Data loading and feature exploartion: This part uses os and pandas to load, process the data into a dataframe, plotting correlation matrix on both the dataset. 
+- Preprocessing: Involves getting rid of Null values, selecting features required hour,weekday, month, year from the data and plotting visualization, followed by normalizing and reshaping the data follwed by using The Dickey-Fuller test to check if thr data us stationary
+- Model building and training: This part using PCA to select the features necessary,normalizing target variables and then building forecasting models With XGBoost, GRU, LSTM, CNN, CNN-LSTM,LSTM attention, GRU-XGboost, LSTM attention-XGboost.
+- We plot the train an validation Mean Absolute Error for each case and also compare the scores across the different models towards the end. 
 
-This project holds potential value for stakeholders in the energy sector, such as utility companies, market operators, and policymakers, who are increasingly relying on data-driven solutions to tackle the challenges of modern energy systems.
+![image](https://github.com/ritikdhame/Electricity_Demand_and_Price_orecasting/assets/7029092/08e42691-68ec-4ccd-9bec-5dcc51206844)
 
+## Requirements
 
+To run the code, you need to install the following libraries:
 
+- matplotlib
+- Numpy, panda, math
+- Seaborn
+- Xgboost
+- Tensorflow
+- keras
+- Scikit Learn 
 
+## Models used in this project : 
 
+#### 1. Machine learning : 
+ * XGboost Regressor
+#### 2. Deep learning/Stacked models :
+* GRU 
+* LSTM 
+* CNN 
+* CNN-LSTM 
+* LSTM-Attention 
+#### 3. Hybrid methods:   
+* GRU-XGBoost 
+* LSTM-Attention-XGBoost 
 
-
+## Results
+The MAE (Mean Absolute Error) is used to report the results for the normalized test set:
+* TSO prediction : 0.070
+* XGboost : 0.016
+* GRU : 0.015
+* LSTM : 0.018
+* CNN : 0.025
+* CNN-LSTM : 0.019
+* LSTM-Attention : 0.015
+* Hybrid GRU-XGBoost : 0.014
+* Hybrid LSTM-Attention-XGBoost : 0.015
+Note : According to the findings, the hybrid methods demonstrated better performance in terms of MAE compared to other methods. It is worth mentioning that all machine learning/deep learning methods outperformed TSO prediction.
+ 
