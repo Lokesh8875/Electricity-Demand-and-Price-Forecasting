@@ -1,4 +1,4 @@
-# Day Ahead Electricity Price Prediction
+# Electricity Demand and Price Forecasting
 This project is the final submission following the Infosys SpringBoard Internship Program 2024, submitted by Nikhil Sharma.
 
 #### -- Project Status: [Completed]
